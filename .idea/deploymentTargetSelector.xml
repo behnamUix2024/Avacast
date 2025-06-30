@@ -4,17 +4,14 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-05-24T19:27:25.140218500Z">
+        <DropdownSelection timestamp="2025-06-24T14:42:37.244166100Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Behnam-6.403\.android\avd\Resizable_Experimental_API_34.avd" />
+              <DeviceId pluginId="PhysicalDevice" identifier="serial=RF8T30CNW5P" />
             </handle>
           </Target>
         </DropdownSelection>
         <DialogSelection />
-      </SelectionState>
-      <SelectionState runConfigName="Preview">
-        <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
   </component>
