@@ -16,6 +16,20 @@ val Typography = Typography(
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     ),
+    displayLarge = TextStyle(
+        fontFamily = VazirFont
+    ),
+    displayMedium = TextStyle(
+        fontFamily = VazirFont,
+        fontWeight = FontWeight.Bold,
+        fontSize = 48.sp
+    ),
+    headlineMedium = TextStyle(
+        fontFamily = VazirFont
+    ),
+
+
+
 
 
     titleLarge = TextStyle(
