@@ -36,7 +36,7 @@ fun SplashScreenLoading(onLoginSuccess: () -> Unit) {
                     contentDescription = ""
                 )
                 Text(
-                    text="آواکست",
+                    text="2آواکست",
                     style = MaterialTheme.typography.displayMedium,
                     color = black
                 )
