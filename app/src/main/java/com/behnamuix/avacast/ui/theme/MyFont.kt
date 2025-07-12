@@ -10,3 +10,6 @@ val VazirFont= FontFamily(
     Font(R.font.vazir_medium),
     Font(R.font.vazir_bold),
 )
+val VazirFontBold= FontFamily(
+    Font(R.font.vazir_bold),
+)

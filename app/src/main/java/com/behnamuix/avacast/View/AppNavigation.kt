@@ -25,7 +25,9 @@ import androidx.compose.ui.Alignment // برای مثال
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
+import com.behnamuix.avacast.View.SelectSignIn
 import com.behnamuix.avacast.View.SplashScreenLoading
+import com.behnamuix.avacast.View.WelcomeScreen
 import com.behnamuix.avacast.ui.theme.AvacastTheme
 import com.behnamuix.avacast.ui.theme.black
 import com.behnamuix.avacast.ui.theme.indigo
@@ -36,39 +38,53 @@ import com.behnamuix.avacast.ui.theme.success
 // 1. مسیرهای هر صفحه رو به صورت ثابت‌های String تعریف کن (بهتره)
 object AppScreens {
     const val SPLASH_SCREEN_LOADING = "splash_screen_loading"
-    const val SPLASH_SCREEN= "splash_screen"
-    const val SIGNUP_SCREEN = "signup_screen"
+    const val WELCOME_SCREEN = "WelcomeSc"
+    const val SELECT_SIGNIN = "SelectSignInSc"
     const val LOGIN_SCREEN = "login_screen"
 }
 
 @Composable
 fun AppNavigation() {
-    // 2. یه NavController بساز. این "راننده" ناوبری شماست.
     val navController = rememberNavController()
-
-    // 3. NavHost رو تعریف کن. این "قاب اصلی" نمایش صفحات شماست.
     NavHost(
-        navController = navController, // راننده رو به قاب بده
-        startDestination = AppScreens.SPLASH_SCREEN_LOADING // بهش بگو از کدوم صفحه شروع کنه
+        navController = navController,
+        startDestination = AppScreens.SPLASH_SCREEN_LOADING
     ) {
-        // 4. هر صفحه (کامپوزابل) رو به عنوان یک مقصد تعریف کن
+        // صفحه اسپلش
         composable(AppScreens.SPLASH_SCREEN_LOADING) {
-            // این محتوای UI صفحه ورود شماست
             SplashScreenLoading(
                 onLoginSuccess = {
-                    // وقتی ورود موفق بود، به صفحه اصلی برو
-                    // popUpTo: صفحه ورود رو از پشته ناوبری حذف کن تا با دکمه Back برنگرده بهش
-                    navController.navigate(AppScreens.SPLASH_SCREEN) {
+                    navController.navigate(AppScreens.WELCOME_SCREEN) {
                         popUpTo(AppScreens.SPLASH_SCREEN_LOADING) { inclusive = true }
                     }
                 }
             )
         }
+
+        // صفحه خوش آمدگویی
+        composable(AppScreens.WELCOME_SCREEN) {
+            WelcomeScreen(
+                next = {
+                    // به صفحه بعدی بروید (مثلا SIGNUP_SCREEN)
+                    navController.navigate(AppScreens.SELECT_SIGNIN)
+                }
+            )
+        }
+
+        // صفحه ثبت نام (مثال)
+        composable(AppScreens.SELECT_SIGNIN) {
+            SelectSignIn(
+                next = { navController.popBackStack() },)
+        }
+//
+//        // صفحه ورود (مثال)
+//        composable(AppScreens.LOGIN_SCREEN) {
+//            LoginScreen(
+//                onBack = { navController.popBackStack() }
+//            )
+//        }
     }
 }
-
-// --- مثال‌هایی از صفحه‌های کامپوزابل شما ---
-
 
 
 
