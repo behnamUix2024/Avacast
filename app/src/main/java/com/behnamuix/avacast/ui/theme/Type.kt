@@ -21,6 +21,18 @@ val Typography = Typography(
         fontFamily = VazirFontBold,
         fontSize = 30.sp,
         textDirection = TextDirection.Rtl
+        ),
+    displayLarge = TextStyle(
+        fontFamily = VazirFontBold,
+        fontSize = 45.sp,
+        textDirection = TextDirection.Rtl
+    ),
+    labelSmall = TextStyle(
+        fontFamily = VazirFont,
+        textDirection = TextDirection.Rtl,
+        fontSize = 12.sp,
+
+
         )
 
 

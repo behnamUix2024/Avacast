@@ -24,6 +24,7 @@ class MainActivity : ComponentActivity() {
             AvacastTheme {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     AppNavigation() // مطمئن شو که این خط هست و AppNavigation رو فراخوانی می‌کنه
+
                 }
 
             }

@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment // برای مثال
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
+import com.behnamuix.avacast.View.ProfileScreen
 import com.behnamuix.avacast.View.SelectSignIn
 import com.behnamuix.avacast.View.SplashScreenLoading
 import com.behnamuix.avacast.View.WelcomeScreen
@@ -40,16 +41,18 @@ object AppScreens {
     const val SPLASH_SCREEN_LOADING = "splash_screen_loading"
     const val WELCOME_SCREEN = "WelcomeSc"
     const val SELECT_SIGNIN = "SelectSignInSc"
-    const val LOGIN_SCREEN = "login_screen"
+    const val PROFILE_SCREEN = "ProfileSc"
 }
 
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
     NavHost(
+
         navController = navController,
-        startDestination = AppScreens.SPLASH_SCREEN_LOADING
+        startDestination = AppScreens.PROFILE_SCREEN
     ) {
+
         // صفحه اسپلش
         composable(AppScreens.SPLASH_SCREEN_LOADING) {
             SplashScreenLoading(
@@ -74,15 +77,17 @@ fun AppNavigation() {
         // صفحه ثبت نام (مثال)
         composable(AppScreens.SELECT_SIGNIN) {
             SelectSignIn(
-                next = { navController.popBackStack() },)
+                next = { navController.popBackStack() },
+                back = {navController.navigate(AppScreens.WELCOME_SCREEN)})
         }
 //
-//        // صفحه ورود (مثال)
-//        composable(AppScreens.LOGIN_SCREEN) {
-//            LoginScreen(
-//                onBack = { navController.popBackStack() }
-//            )
-//        }
+        // صفحه ورود (مثال)
+        composable(AppScreens.PROFILE_SCREEN) {
+            ProfileScreen (
+                countinue = { navController.navigate(AppScreens.SPLASH_SCREEN_LOADING) },
+                back = { navController.navigate(AppScreens.SELECT_SIGNIN) }
+            )
+        }
     }
 }
 
